@@ -1,5 +1,5 @@
 import pytest
-from app.conditional.greater import greater
+from app.greater.greater import greater
 
 
 @pytest.mark.parametrize(
