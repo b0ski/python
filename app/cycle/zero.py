@@ -1,8 +1,8 @@
 def zero(*args):
     if 0 in args:
-        print('Yes')
+        return 'Yes'
     else:
-        print('No')
+        return 'No'
 
 
-zero(1, 1)
+

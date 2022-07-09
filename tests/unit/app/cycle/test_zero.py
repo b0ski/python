@@ -3,11 +3,10 @@ from app.cycle.zero import zero
 
 
 @pytest.mark.parametrize(
-    '*first,  answer',
+    'first,  answer',
     [
-        (12, 6),
-        (2, 2),
+        ([1, 1, 0], 'Yes'),
     ]
 )
 def test_zero(first, answer):
-    assert answer == zero(first)
+    assert answer == zero(*first)
