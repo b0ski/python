@@ -4,8 +4,10 @@ def max_num(param):
             if instance_l1 < instance_l2:
                 maximum = instance_l2
     print(maximum, param.index(maximum))
-#   print(max(param), param.index(max(param)))
+#   print(max(param), param.index(max(param))) python method
+
 
 max_num((1, 666662, 43, 2345, 3245, 4232))
+
 
 
