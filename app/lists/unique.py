@@ -1,7 +1,9 @@
 def unique(param):
+    arr = []
     for instance in param:
         if param.count(instance) == 1:
-            print(instance)
+            arr.append(instance)
+    return arr
 
 
-unique([1, 22, 22, 11, 11, 11, 22, 333])
+

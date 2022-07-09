@@ -1,7 +1,7 @@
 def even_nums(param):
+    arr = []
     for instance in param:
         if instance % 2 == 0:
-            print(instance)
+            arr.append(instance)
+    return arr
 
-
-even_nums((1, 2, 43, 2345, 1245, 32))

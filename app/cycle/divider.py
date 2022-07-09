@@ -1,7 +1,6 @@
 def divider(a):
+    arr = []
     for i in range(1, a):
         if a % i == 0:
-            print(i)
-
-
-divider(9)
+            arr.append(i)
+    return arr

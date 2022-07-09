@@ -1,9 +1,8 @@
 def divider_counter(a):
     counter = 0
-    for i in range(1, a):
+    for i in range(1, a + 1):
         if a % i == 0:
             counter = counter + 1
-    print(counter)
+    return counter
 
 
-divider_counter(12)

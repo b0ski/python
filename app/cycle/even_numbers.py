@@ -1,7 +1,8 @@
-def even_number(a, b):
+def even_numbers(a, b):
+    arr = []
     for i in range(a, b):
         if i % 2 == 0:
-            print(i)
+            arr.append(i)
+    return arr
 
 
-even_number(1, 10)
