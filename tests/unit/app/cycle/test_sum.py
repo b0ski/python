@@ -3,11 +3,10 @@ from app.cycle.sum import sum
 
 
 @pytest.mark.parametrize(
-    '*first,  answer',
+    'first,  answer',
     [
-        (12, 6),
-        (2, 2),
+        ([1, 2], 3),
     ]
 )
 def test_sum(first, answer):
-    assert answer == sum(first)
+    assert answer == sum(*first)
