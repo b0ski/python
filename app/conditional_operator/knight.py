@@ -15,10 +15,8 @@ def knight(k1, k2, t1, t2):
     for pair in coords:
 
         if alphabetical[pair[0]] == t1 and numerical[pair[1]] == t2:
-            print("Yes")
+            return "Yes"
 
         else:
-            print('No')
+            return 'No'
 
-
-knight('d', 5, 'e', 3)

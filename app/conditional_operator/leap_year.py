@@ -1,10 +1,7 @@
-def leap_year(a: int) -> int:
-    if not isinstance(a, int):
-        raise TypeError(f'Argument "a" must be integer, not {type(a)}')
+def leap_year(a):
 
     if a % 4 == 0:
-        print ('Yes')
+        return 'Yes'
     else:
-        print ('No')
-
+        return 'No'
 
