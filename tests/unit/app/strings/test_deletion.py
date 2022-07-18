@@ -6,6 +6,8 @@ from app.strings.deletion import deletion
     'a,  answer',
     [
         ('Функція h отримує строку,h де літера', 'Функція  де літера'),
+        ('hhohoho', 'o'),
+        ('aaaaaaaa', 'There is no \'h\' in the string'),
     ]
 )
 def test_deletion(a, answer):

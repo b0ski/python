@@ -1,7 +1,25 @@
-def max_num(param):
-    for instance_l1 in param:
-        for instance_l2 in param:
-            if instance_l1 < instance_l2:
-                maximum = instance_l2
-    return maximum, param.index(maximum)
-#   print(max(param), param.index(max(param))) python method
+def max_in_pairs(param):
+    evens = []
+    max = []
+
+    if len(param) == 1:
+        return
+
+    if len(param) % 2 != 0:
+        param.append(0)
+
+    for i in range(0, len(param)):
+        if i % 2 == 0:
+            evens.append(i)
+
+    for x in evens:
+        if param[x] < param[x + 1]:
+            param[x], param[x + 1] = param[x + 1], param[x]
+        max.append(param[x])
+        print(max)
+
+    max_in_pairs(max)
+    return max
+
+
+max_in_pairs([110, 2, 45, 132, 82, 9, 22, 3])
