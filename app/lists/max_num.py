@@ -20,5 +20,3 @@ def max_num(param):
     return mx[0]
 
 
-max_num([22222, 10, 1, 22, 333, 100, 2222])
-
