@@ -3,8 +3,7 @@ def max_num(param):
     mx = []
 
     if len(param) == 1:
-        print(param)
-        return param
+        return
 
     if len(param) % 2 != 0:
         param.append(0)
@@ -18,7 +17,9 @@ def max_num(param):
             param[x], param[x + 1] = param[x + 1], param[x]
         mx.append(param[x])
     max_num(mx)
+    print(mx)
+    return mx[0]
 
 
-max_num([1, 2, 3])
+max_num([22222, 10, 1, 22, 333, 100, 2222])
 
