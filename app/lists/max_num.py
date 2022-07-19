@@ -1,6 +1,6 @@
 def max_num(param):
     evens = []
-    max = []
+    mx = []
 
     if len(param) == 1:
         print(param)
@@ -16,8 +16,8 @@ def max_num(param):
     for x in evens:
         if param[x] < param[x + 1]:
             param[x], param[x + 1] = param[x + 1], param[x]
-        max.append(param[x])
-    max_num(max)
+        mx.append(param[x])
+    max_num(mx)
 
 
 max_num([1, 2, 3])
