@@ -17,7 +17,6 @@ def max_num(param):
             param[x], param[x + 1] = param[x + 1], param[x]
         mx.append(param[x])
     max_num(mx)
-    print(mx)
     return mx[0]
 
 
