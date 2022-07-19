@@ -1,10 +1,10 @@
 def max_num(param):
     evens = []
     max = []
-    result = 0
 
     if len(param) == 1:
-        return
+        print(param)
+        return param
 
     if len(param) % 2 != 0:
         param.append(0)
@@ -17,11 +17,8 @@ def max_num(param):
         if param[x] < param[x + 1]:
             param[x], param[x + 1] = param[x + 1], param[x]
         max.append(param[x])
-    print(max)
-
     max_num(max)
-  #  return max
 
 
-max_num([1100, 2, 45, 132, 82, 9, 22, 3])
+max_num([1, 2, 3])
 

@@ -19,7 +19,6 @@ def max_in_pairs(param):
         print(min)
 
     max_in_pairs(min)
-    return min
 
 
 max_in_pairs([110, 2, 45, 132, 82, 9, 22, 3])
