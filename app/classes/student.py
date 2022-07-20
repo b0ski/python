@@ -17,6 +17,7 @@ class Student:
 
 
 class Aspirant(Student):
+    # overwrites original method
     def getScholarship(self):
         if self.gpa == 5:
             scholarship = 200
@@ -25,7 +26,10 @@ class Aspirant(Student):
         return scholarship
 
 
+# students and aspirant
 learners = []
+
+# random gpa
 gpa_r = []
 
 for student_id in range(5):
