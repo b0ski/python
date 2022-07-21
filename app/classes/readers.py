@@ -17,6 +17,7 @@ class Reader:
 class Library:
     reader = None
     book = None
+    has_book = {}
 
     def __init__(self, address: str, telephone: str, books: list, readers: list):
         self.address = address
@@ -29,6 +30,7 @@ class Library:
             print(f'{reader.firstName} {reader.lastName}'
                   f' took the following book: {book.genre}, {book.title}, {book.author}')
             self.books.remove(book)
+            self.has_book[book] = reader
 
         else:
             print('Book is taken')
@@ -37,9 +39,23 @@ class Library:
         print(f'{reader.firstName} {reader.lastName}'
               f' returned the following book: {book.genre}, {book.title}, {book.author}')
         self.books.append(book)
+        self.has_book[book] = None
 
     def book_log(self):
-        print(self.books)
+        for book in self.has_book:
+            print(f'{self.has_book[book].lastName} {self.has_book[book].lastName} has {book.title}')
+
+    def write_off_book(self, book):
+        self.books.remove(book)
+
+    def write_on_book(self, book):
+        self.books.append(book)
+
+    def write_off_reader(self, reader):
+        self.readers.remove(reader)
+
+    def write_on_reader(self, reader):
+        self.readers.append(reader)
 
 
 book_1 = Book('novel', 'Lord of the Flies', 'William Golding')
