@@ -38,5 +38,6 @@ phone_3.getNumber()
 '''
 
 phone_1.sendMessage('555 - 777', '555 - 888')
+phone_1.recieveCall()
 
 
