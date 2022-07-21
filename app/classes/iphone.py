@@ -20,24 +20,4 @@ class Iphone:
         return args
 
 
-phone_1 = Iphone(6, 200, 'Boris', '555 - 777')
-
-
-'''
-
-phone_2 = Iphone('555 - 777', 7, 100, 'Petro')
-phone_3 = Iphone('555 - 888', 8, 160, 'Stepan')
-
-print(phone_1.__str__())
-
-
-phone_1.getNumber()
-phone_2.getNumber()
-phone_3.getNumber()
-
-'''
-
-phone_1.sendMessage('555 - 777', '555 - 888')
-phone_1.recieveCall()
-
 

@@ -23,16 +23,16 @@ class Car:
         return self.model, self.clss, self.weight, self.driver, self.engine
 
     def start(self):
-        print("Поїхали")
+        return "Поїхали"
 
     def stop(self):
-        print("Зупиняємось")
+        return "Зупиняємось"
 
     def turnRight(self):
-        print("Поворот праворуч")
+        return "Поворот праворуч"
 
     def turnLeft(self):
-        print("Поворот ліаворуч")
+        return "Поворот ліворуч"
 
 
 class Lorry(Car):
