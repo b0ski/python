@@ -15,21 +15,31 @@ class Reader:
 
 
 class Library:
+    reader = None
+    book = None
+
     def __init__(self, address: str, telephone: str, books: list, readers: list):
         self.address = address
         self.telephone = telephone
         self.books = books
         self.readers = readers
 
-    def takeBook(self):
-        print(f'{self.readers[0].firstName} {self.readers[0].lastName}'
-              f' took the following book: {self.books[1].genre}, {self.books[1].title}, {self.books[1].author}')
-        self.books.remove(book_1)
+    def takeBook(self, reader, book):
+        if book in self.books:
+            print(f'{reader.firstName} {reader.lastName}'
+                  f' took the following book: {book.genre}, {book.title}, {book.author}')
+            self.books.remove(book)
 
-    def returnBook(self):
-        print(f'{self.readers[0].firstName} {self.readers[0].lastName}'
-              f' has returned the following book: {self.books[2].genre}, {self.books[2].title}, {self.books[2].author}')
-        self.books.append(book_2)
+        else:
+            print('Book is taken')
+
+    def returnBook(self, reader, book):
+        print(f'{reader.firstName} {reader.lastName}'
+              f' returned the following book: {book.genre}, {book.title}, {book.author}')
+        self.books.append(book)
+
+    def book_log(self):
+        print(self.books)
 
 
 book_1 = Book('novel', 'Lord of the Flies', 'William Golding')
@@ -47,7 +57,9 @@ readers_list = [reader_1, reader_2, reader_3]
 
 library = Library('10, Downing street', '555-505', books_list, readers_list)
 
-library.takeBook()
-library.returnBook()
+library.takeBook(reader_1, book_1)
+library.takeBook(reader_2, book_1)
+library.book_log()
 
-print(books_list)
+
+
