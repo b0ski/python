@@ -27,23 +27,21 @@ class Library:
 
     def takeBook(self, reader, book):
         if book in self.books:
-            print(f'{reader.firstName} {reader.lastName}'
-                  f' took the following book: {book.genre}, {book.title}, {book.author}')
             self.books.remove(book)
             self.has_book[book] = reader
+            return f'{reader.firstName} {reader.lastName} took the following book: {book.genre}, {book.title}, {book.author}'
 
         else:
-            print('Book is taken')
+            return 'Book is taken'
 
     def returnBook(self, reader, book):
-        print(f'{reader.firstName} {reader.lastName}'
-              f' returned the following book: {book.genre}, {book.title}, {book.author}')
         self.books.append(book)
         self.has_book[book] = None
+        return f'{reader.firstName} {reader.lastName} returned the following book: {book.genre}, {book.title}, {book.author}'
 
     def book_log(self):
         for book in self.has_book:
-            print(f'{self.has_book[book].lastName} {self.has_book[book].lastName} has {book.title}')
+            return f'{self.has_book[book].lastName} {self.has_book[book].lastName} has {book.title}'
 
     def write_off_book(self, book):
         self.books.remove(book)
@@ -74,8 +72,8 @@ readers_list = [reader_1, reader_2, reader_3]
 library = Library('10, Downing street', '555-505', books_list, readers_list)
 
 library.takeBook(reader_1, book_1)
-library.takeBook(reader_2, book_1)
-library.book_log()
+#library.takeBook(reader_2, book_1)
+#library.book_log()
 
 
 
