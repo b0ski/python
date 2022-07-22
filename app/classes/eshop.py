@@ -15,9 +15,9 @@ class Category:
 
     def search(self, item):
         if item in self.items:
-            print(f'{item} is present')
+            return f'{item} is present'
         else:
-            print(f'There is on {item}')
+            return f'There is no {item}'
 
 
 class Basket:
@@ -28,25 +28,24 @@ class Basket:
 
     def add(self, item):
         self.items.append(item)
-        print(f'{item} added to the basket')
+        return f'{item} added to the basket'
 
     def delete(self, item):
         self.items.remove(item)
-        print(f'{item} removed from the basket')
+        return f'{item} removed from the basket'
 
     def checkout(self, item, user):
         if item.quantity == 0:
-            print(f'The last one {item.name} was bought')
-            return
+            return f'The last one {item.name} was bought'
 
         if item in self.items:
             if user.money >= item.price:
                 item.quantity = item.quantity - 1
                 user.money = user.money - item.price
-                print(f'You bought {item.name}')
+                return f'You bought {item.name}'
 
             else:
-                print("you don't have enough money")
+                return "you don't have enough money"
 
 
 class User:
@@ -77,3 +76,10 @@ user_2.basket.checkout(item_5, user_2)
 
 item_5.quantity = 100
 user_2.basket.checkout(item_5, user_2)
+
+'''
+['samsung', 980, 5, 87, 'Lisa', '12345', 2000, None, 'You bought oppo'],
+['xiaomi', 500, 4, 120, 'Peter', 'qwerty', 5, None, 'The last one oppo was bought'],
+['sony', 770, 3, 89, 'Lisa', '12345', 2000, None, 'You bought oppo'],
+['oppo', 120, 3, 2, 'Peter', 'qwerty', 5, None, 'You bought oppo'],
+'''
