@@ -28,11 +28,11 @@ class Basket:
 
     def add(self, item):
         self.items.append(item)
-        return '{item} added to the basket'
+        return f'{item} added to the basket'
 
     def delete(self, item):
         self.items.remove(item)
-        return '{item} removed from the basket'
+        return f'{item} removed from the basket'
 
     def checkout(self, item, user):
         if item.quantity == 0:
