@@ -8,3 +8,4 @@ def greater(a: int, b: int) -> int:
         return a
     else:
         return b
+

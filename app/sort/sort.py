@@ -1,6 +1,6 @@
-def max_num(param):
+def max_in_pairs(param):
     evens = []
-    mx = []
+    min = []
 
     if len(param) == 1:
         return
@@ -13,10 +13,22 @@ def max_num(param):
             evens.append(i)
 
     for x in evens:
-        if param[x] < param[x + 1]:
+        if param[x] > param[x + 1]:
             param[x], param[x + 1] = param[x + 1], param[x]
-        mx.append(param[x])
-    max_num(mx)
-    return mx[0]
+        min.append(param[x])
+        print(min)
+
+    max_in_pairs(min)
+
+
+max_in_pairs([110, 2, 45, 132, 82, 9, 22, 3])
+
+
+
+
+
+
+
+
 
 
