@@ -5,7 +5,7 @@ from app.classes.eshop import Item, Category, Basket, User
 @pytest.mark.parametrize(
     'name, price, rate, quantity, login, pss, money, basket, ans',
     [
-        ('iphone', 999, 4, 45, 'Peter', 'qwerty', 5, None, 'you don\'t have enough money'),
+        ('iphone', 999, 4, 45, 'Peter', 'qwerty', 5, None, 'You don\'t have enough money'),
         ('samsung', 980, 5, 87, 'Lisa', '12345', 2000, None, 'You bought samsung'),
 
     ]

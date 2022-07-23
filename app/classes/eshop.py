@@ -45,7 +45,7 @@ class Basket:
                 return f'You bought {item.name}'
 
             else:
-                return "you don't have enough money"
+                return "You don't have enough money"
 
 
 class User:
