@@ -52,3 +52,4 @@ for studs in learners:
     else:
         studs = Student('fn', 'ln', 'gr', gpa_r[learners.index(studs)])
         print(studs.getScholarship())
+
