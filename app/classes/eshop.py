@@ -77,6 +77,7 @@ user_2.basket.checkout(item_5, user_2)
 item_5.quantity = 100
 user_2.basket.checkout(item_5, user_2)
 
+
 '''
 ['samsung', 980, 5, 87, 'Lisa', '12345', 2000, None, 'You bought oppo'],
 ['xiaomi', 500, 4, 120, 'Peter', 'qwerty', 5, None, 'The last one oppo was bought'],
