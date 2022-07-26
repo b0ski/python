@@ -1,4 +1,9 @@
 class Item:
+    name: str
+    price: int
+    rate: int
+    quantity: int
+
     def __init__(self, name: str, price: int, rate: int, quantity: int):
         self.name = name
         self.price = price
@@ -7,6 +12,8 @@ class Item:
 
 
 class Category:
+    name: str
+    items: list
     item = None
 
     def __init__(self, name: str, items: list):
@@ -21,6 +28,7 @@ class Category:
 
 
 class Basket:
+    items: list
     item = None
 
     def __init__(self, items: list):
@@ -49,6 +57,11 @@ class Basket:
 
 
 class User:
+    login: str
+    pss: str
+    money: int
+    basket: Basket
+
     def __init__(self, login: str, pss: str, money: int, basket: Basket):
         self.login = login
         self.pss = pss
