@@ -37,7 +37,7 @@ class Basket:
     item = None
     user: user_module
 
-    def __init__(self, items: list):
+    def __init__(self, items: list[Item]):
         self.items = items
 
     def add(self, item):
@@ -70,9 +70,7 @@ class Basket:
                 # return "you don't have enough money"
 
 
-
-  item_1 = Item(name, price, rate, quantity)
-
-
+item_1 = Item("name", 12, 12, 12)
+items = [item_1]
 basket = Basket()
 basket.set_user("Petro")
