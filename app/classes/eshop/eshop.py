@@ -72,5 +72,5 @@ class Basket:
 
 item_1 = Item("name", 12, 12, 12)
 items = [item_1]
-basket = Basket()
+basket = Basket(items)
 basket.set_user("Petro")
