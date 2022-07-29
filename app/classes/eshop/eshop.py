@@ -70,6 +70,9 @@ class Basket:
                 # return "you don't have enough money"
 
 
+user1 = User()
+
+
 item_1 = Item("name", 12, 12, 12)
 items = [item_1]
 basket = Basket(items)
