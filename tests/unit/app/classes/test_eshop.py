@@ -1,5 +1,5 @@
 import pytest
-from app.classes.eshop import Item, Category, Basket, User
+from app.classes.eshop.operations_module import Item, Basket, User
 
 
 @pytest.mark.parametrize(
