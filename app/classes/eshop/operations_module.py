@@ -31,7 +31,7 @@ class Category:
 
 class Basket:
     items: list[Item] = []
-    item = None
+    item = Item
     if __name__ == "__main__":
         from user_module import User
         user: User
@@ -39,29 +39,29 @@ class Basket:
     def __init__(self, items: list[Item]):
         self.items = items
 
+    def set_user(self, usr):
+        print(f'{usr} called')
+
     def add(self, item):
         self.items.append(item)
         print(f'{item} added to the basket')
         # return f'{item} added to the basket'
-
-    def set_user(self, user):
-        print(f'{user} called')
 
     def delete(self, item):
         self.items.remove(item)
         print(f'{item} removed from the basket')
         # return f'{item} removed from the basket'
 
-    def checkout(self, item, user):
-        if item.quantity == 0:
-            print(f'The last one {item.name} was bought')
+    def checkout(self):
+        if self.item == 0:
+            print(f'The last one {self.item.name} was bought')
             # return f'The last one {item.name} was bought'
 
-        if item in self.items:
-            if user.money >= item.price:
-                item.quantity = item.quantity - 1
-                user.money = user.money - item.price
-                print(f'You bought {item.name}')
+        if self.item in self.items:
+            if user.money >= self.item.price:
+                self.item.quantity = self.item.quantity - 1
+                user.money = user.money - self.item.price
+                print(f'You bought {self.item.name}')
                 # return f'You bought {item.name}'
 
             else:
@@ -89,6 +89,7 @@ if __name__ == "__main__":
     basket.set_user(user_1)
 
     basket.add(item_1)
+    basket.checkout()
 
 
 '''
