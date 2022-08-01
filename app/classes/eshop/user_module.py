@@ -7,7 +7,7 @@ class User:
     money: int
     basket: Basket
 
-    def __init__(self, login: str, pss: str, money: int, basket: Basket):
+    def __init__(self, login: str, pss: str, money: int, basket: Basket = None):
 
         self.login = login
         self.pss = pss
