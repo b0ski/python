@@ -34,10 +34,10 @@ class Basket:
     def __init__(self, items: list[Item]):
         self.items = items
 
-    def set_user(self, user):
+    def set_user(self, login: str, pss: str, money: int):
         if __name__ == "__main__":
             from user_module import User
-            user = User()
+            user = User(login, money, pss, money)
         return f'{user.login} is called'
 
     def add(self, item):
@@ -63,4 +63,4 @@ class Basket:
 
 
 
-
+basket = Basket()
