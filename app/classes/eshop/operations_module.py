@@ -116,4 +116,87 @@ item_1 = Item("name", 12, 12, 12)
 items = [item_1]
 basket = Basket(items)
 basket.set_user("Petro")
+
+
+@pytest.mark.parametrize(
+    'name, price, rate, quantity, login, pss, money, basket, ans',
+    [
+        ('iphone', 999, 4, 45, 'Peter', 'qwerty', 5, None, 'you don\'t have enough money'),
+        ('samsung', 980, 5, 87, 'Lisa', '12345', 2000, None, 'You bought samsung'),
+
+    ]
+)
+def test_checkout(name: str, price: int, rate: int, quantity: int, login: str, pss: str, money: int, basket: Basket, ans):
+    item_1 = Item(name, price, rate, quantity)
+    item_list = [item_1]
+    user_1 = User(login, pss, money, Basket(item_list))
+    user_1.basket.checkout(item_1, user_1)
+    assert user_1.basket.checkout(item_1, user_1) == ans
+
+
+@pytest.mark.parametrize(
+    'name_1, price_1, rate_1, quantity_1, login_1, pss_1, money_1, basket_1,'
+    'name_2, price_2, rate_2, quantity_2, login_2, pss_2, money_2, basket_2, ans',
+    [
+        ('iphone', 999, 4, 1, 'Peter', 'qwerty', 1000, None,
+         'samsung', 980, 5, 87, 'Lisa', '12345', 2000, None, 'The last one iphone was bought'),
+    ]
+)
+def test_last_phone(name_1: str, price_1: int, rate_1: int, quantity_1: int, login_1: str, pss_1: str, money_1: int, basket_1: Basket,
+                    name_2: str, price_2: int, rate_2: int, quantity_2: int, login_2: str, pss_2: str, money_2: int, basket_2: Basket,
+                    ans):
+    item_1 = Item(name_1, price_1, rate_1, quantity_1)
+    item_list = [item_1]
+
+    user_1 = User(login_1, pss_1, money_1, Basket(item_list))
+    user_2 = User(login_2, pss_2, money_2, Basket(item_list))
+
+    user_1.basket.checkout(item_1, user_1)
+    user_2.basket.checkout(item_1, user_2)
+    assert user_1.basket.checkout(item_1, user_1) == ans
+
+
+
+
+
+@pytest.fixture
+def user_1() -> User:
+    user_1 = User('Peter', 'qwerty', 5, Basket(item_list))
+    return user_1
+
+
+@pytest.fixture
+def item_1() -> Item:
+    item_1 = Item('iphone', 999, 4, 45)
+    return item_1
+
+
+@pytest.fixture
+def item_2() -> Item:
+    item_2 = Item('samsung', 980, 5, 87)
+    return item_2
+
+
+@pytest.fixture
+def item_3() -> Item:
+    item_3 = Item('xiaomi', 500, 4, 120)
+    return item_3
+
+
+item_list = [item_1(), item_2(), item_3()]
+
+
+@pytest.fixture
+def basket(item_1) -> Basket:
+    basket = Basket(item_list)
+    return basket
+
+
+def test_basket_add(basket, item_1):
+    assert basket.checkout(item_1) == 'iphone added to the basket'
+
+
+
+
+
 '''

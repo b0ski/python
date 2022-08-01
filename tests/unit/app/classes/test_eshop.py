@@ -1,5 +1,6 @@
 import pytest
-from app.classes.eshop.operations_module import Item, Basket, User
+from app.classes.eshop.operations_module import Item, Basket
+from app.classes.eshop.user_module import User
 
 
 @pytest.mark.parametrize(
@@ -38,5 +39,3 @@ def test_last_phone(name_1: str, price_1: int, rate_1: int, quantity_1: int, log
     user_1.basket.checkout(item_1, user_1)
     user_2.basket.checkout(item_1, user_2)
     assert user_1.basket.checkout(item_1, user_1) == ans
-
-
