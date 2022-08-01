@@ -30,14 +30,14 @@ class Category:
 class Basket:
     items: list[Item] = []
     item = None
-    if __name__ == "__main__":
-        from user_module import User
-        user: User
 
     def __init__(self, items: list[Item]):
         self.items = items
 
     def set_user(self, user):
+        if __name__ == "__main__":
+            from user_module import User
+            user = User()
         return f'{user.login} is called'
 
     def add(self, item):
