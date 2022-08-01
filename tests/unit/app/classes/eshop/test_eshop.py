@@ -1,16 +1,21 @@
 import pytest
 from app.classes.eshop.operations_module import Item, Basket
 
-item_1 = Item('iphone', 999, 4, 45)
-item_2 = Item('samsung', 980, 5, 87)
-item_3 = Item('xiaomi', 500, 4, 120)
-item_4 = Item('sony', 770, 3, 89)
-item_5 = Item('oppo', 120, 3, 2)
+if __name__ == "__main__":
+    from app.classes.eshop.user_module import User
+    user: User
 
-item_list = [item_1, item_2, item_3, item_4, item_5]
+    @pytest.mark.parametrize(
+        'name, price, rate, quantity, login, pss, money, basket, ans',
+        [
+            ('iphone', 999, 4, 45, 'Peter', 'qwerty', 5, None, 'you don\'t have enough money'),
+            ('samsung', 980, 5, 87, 'Lisa', '12345', 2000, None, 'You bought samsung'),
 
-
-@pytest.fixture
-def test_basket_add():
-    basket = Basket(item_list)
-    assert basket.add(item_1) == 'iphone added to the basket'
+        ]
+    )
+    def test_checkout(name: str, price: int, rate: int, quantity: int, login: str, pss: str, money: int, basket: Basket, ans):
+        item_1 = Item(name, price, rate, quantity)
+        item_list = [item_1]
+        user_1 = User(login, pss, money, Basket(item_list))
+        user_1.basket.checkout(item_1, user_1)
+        assert user_1.basket.checkout(item_1, user_1) == ans
