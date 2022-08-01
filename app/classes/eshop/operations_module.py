@@ -44,8 +44,7 @@ class Basket:
 
     def add(self, item):
         self.items.append(item)
-        print(f'{item} added to the basket')
-        # return f'{item} added to the basket'
+        return f'{item} added to the basket'
 
     def delete(self, item):
         self.items.remove(item)
@@ -54,8 +53,7 @@ class Basket:
 
     def checkout(self):
         if self.item == 0:
-            print(f'The last one {self.item.name} was bought')
-            # return f'The last one {item.name} was bought'
+            return f'The last one {self.item.name} was bought'
 
         if self.item in self.items:
             if user.money >= self.item.price:
@@ -197,6 +195,15 @@ def test_basket_add(basket, item_1):
 
 
 
+
+
+
+
+
+@pytest.fixture
+def user_1() -> User:
+    user_1 = User('Peter', 'qwerty', 5, Basket(item_list))
+    return user_1
 
 
 '''
