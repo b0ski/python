@@ -45,6 +45,14 @@ def test_basket_add(basket, item_1):
     assert b_add == 'iphone added to the basket'
 
 
+def test_user(basket):
+    set_user = basket.set_user("Peter", "123", 100)
+    assert set_user == 'Peter is called'
+
+
+def test_check(basket):
+    check = basket.checkout()
+    assert check == 'You bought iphone'
 
 
 

@@ -29,7 +29,8 @@ class Category:
 
 class Basket:
     items: list[Item] = []
-    item = None
+    item = Item = None
+    user = User = None
 
     def __init__(self, items: list[Item]):
         self.items = items
@@ -37,8 +38,8 @@ class Basket:
     def set_user(self, login: str, pss: str, money: int):
         if __name__ == "__main__":
             from user_module import User
-            user = User(login, money, pss, money)
-        return f'{user.login} is called'
+            user = User(login, pss, money)
+            return f'{user.login} is called'
 
     def add(self, item):
         self.items.append(item)
@@ -63,4 +64,3 @@ class Basket:
 
 
 
-basket = Basket()
