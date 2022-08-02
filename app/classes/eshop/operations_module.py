@@ -1,3 +1,14 @@
+class User:
+    login: str
+    pss: str
+    money: int
+
+    def __init__(self, login: str, pss: str, money: int):
+        self.login = login
+        self.pss = pss
+        self.money = money
+
+
 class Item:
     name: str
     price: int
@@ -30,13 +41,12 @@ class Category:
 class Basket:
     items: list[Item] = []
     item: Item = None
-    user = None
+    user: User = None
 
     def __init__(self, items: list[Item]):
         self.items = items
 
     def set_user(self, login: str, pss: str, money: int):
-
         self.user = User(login, pss, money)
         return f'{self.user.login} is called'
 
