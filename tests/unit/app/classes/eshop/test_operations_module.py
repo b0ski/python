@@ -46,7 +46,7 @@ def test_basket_add(basket, item_1):
 
 
 def test_user(basket):
-    set_user = basket.set_user("Peter", "123", 100)
+    set_user = basket.set_user("Peter", "123", 1000)
     assert set_user == 'Peter is called'
 
 
