@@ -1,9 +1,10 @@
-routes = {
-    "/" : {
-        "template" : "index.html"
-    },
+from app.classes.eshop.operations_module import basket
 
-    "/goodbye" : {
-        "template" : "goodbye.html"
+routes = [
+    {
+        'method': 'GET',
+        'path': 'basket/checkout',
+        'call': basket.checkout()
     }
-}
+]
+

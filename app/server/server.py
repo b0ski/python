@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from http.server import HTTPServer
 from http import HTTPStatus
+from app.classes.eshop.operations_module import basket
 import json
 import os
 
@@ -10,11 +11,11 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 class HttpGetHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        self.send_response(HTTPStatus.OK)
-        self.send_header("Content-type", "text/html; charset=utf-8")
-        self.end_headers()
-        self.wfile.write(open(dir_path + '/templates/home.html', 'r').read().encode())
-        # self.wfile.write(json.dumps({'server_name': 'Simple HTTP server', 'author': 'Andrey Varenyk'}).encode())
+        if self.path == "/basket":
+            self.send_response(200)
+            self.send_header("Set-Cookie", "foo=bar")
+            self.end_headers()
+            self.wfile.write(bytes(basket.checkout().encode("utf-8")))
 
 
 def run(server_class=HTTPServer, handler_class=HttpGetHandler):
