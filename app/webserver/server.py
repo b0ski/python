@@ -1,8 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from routes.main import routes
 from pathlib import Path
-import json
-from app.classes.eshop.operations_module import basket
+import simplejson
 
 
 class Server(BaseHTTPRequestHandler):
@@ -35,24 +34,14 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(bytes(response_content, "UTF-8"))
 
     def do_POST(self):
-        status = 200
-        if self.path.endswith(".json"):
-            content_type = "text/plain"
-            self.send_response(status)
-            self.send_header('Content-type', content_type)
+        if self.path == '/json':
+            self.data_string = self.rfile.read(int(self.headers['Content-Length']))
+            self.send_response(200)
             self.end_headers()
-
-            raw_path = self.path
-            raw_data = raw_path[1:]
-            raw_data = raw_data[:-5]
-
-            print(raw_data)
-
-            raw_data = bytes('{"value_1": "ans_1", "value_2": "ans_2"}', "UTF-8")
-            data = json.loads(raw_data)
-
-            for item in data:
-                print(data[item])
-
+            data = simplejson.loads(self.data_string)
+            print(data)
+            self.send_response(200)
+            self.send_header('Content-type',"text/html")
+            self.end_headers()
             response_content = "ok"
             self.wfile.write(bytes(response_content, "UTF-8"))
